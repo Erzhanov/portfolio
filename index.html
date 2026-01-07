@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dos.Coding | Eldos</title>
+<meta name="description" content="Dos.Coding – Full Stack & Python Developer portfolio">
+<meta name="keywords" content="Full Stack, Python, Django, Flutter, Portfolio">
+
+<style>
+    :root{
+    --bg:#020236;
+    --accent:#66C4FF;
+    --text:#ffffff;
+    --glass:rgba(255,255,255,0.07);
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* ================= NAV ================= */
+nav{
+    position:sticky;
+    top:0;
+    background:rgba(2,2,54,0.85);
+    backdrop-filter:blur(10px);
+    text-align:center;
+    padding:15px;
+    z-index:100;
+}
+
+nav a{
+    color:var(--accent);
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    opacity:.7;
+}
+
+/* ================= LANGUAGE SWITCH ================= */
+.lang-switch{
+    position:fixed;
+    top:80px;                 /* navbar-дан төмен */
+    right:20px;
+    display:flex;
+    gap:6px;
+    background:rgba(2,2,54,0.6);
+    backdrop-filter:blur(8px);
+    padding:6px;
+    border-radius:14px;
+    z-index:999;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+.lang-switch button{
+    background:transparent;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    padding:5px 11px;
+    font-size:12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:all .25s ease;
+}
+
+.lang-switch button:hover{
+    background:var(--accent);
+    color:#020236;
+}
+
+.lang-switch button.active{
+    background:var(--accent);
+    color:#020236;
+}
+
+/* Mobile safe */
+@media (max-width:600px){
+    .lang-switch{
+        top:auto;
+        bottom:20px;
+        right:50%;
+        transform:translateX(50%);
+    }
+}
+
+/* ================= HERO ================= */
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    color:var(--accent);
+    font-size:36px;
+}
+
+.hero p{
+    margin-top:10px;
+    opacity:.9;
+}
+
+#typing{
+    color:var(--accent);
+}
+
+/* ================= PHOTO ================= */
+.photo{
+    width:170px;
+    height:170px;
+    margin:20px auto;
+    border-radius:50%;
+    border:5px solid var(--accent);
+    overflow:hidden;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ================= SECTIONS ================= */
+section{
+    max-width:900px;
+    margin:40px auto;
+    padding:30px;
+    background:var(--glass);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    text-align:center;
+}
+
+section h2{
+    color:var(--accent);
+    margin-bottom:15px;
+}
+
+/* ================= SOCIAL BUTTONS ================= */
+.socials{
+    text-align:center;
+    margin:20px 0;
+}
+
+.socials a{
+    display:inline-block;
+    margin:6px;
+    padding:10px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    color:white;
+    transition:.3s;
+}
+
+.socials a:hover{
+    transform:scale(1.05);
+    opacity:.9;
+}
+
+.socials a:nth-child(1){
+    background:linear-gradient(45deg,#feda75,#d62976,#962fbf,#4f5bd5);
+}
+
+.socials a:nth-child(2){
+    background:#2AABEE;
+}
+
+.socials a:nth-child(3){
+    background:#25D366;
+}
+
+/* ================= SKILLS ================= */
+.skills{
+    padding:0;
+}
+
+.skills li{
+    display:inline-block;
+    margin:6px;
+    padding:6px 14px;
+    border:1px solid var(--accent);
+    border-radius:20px;
+    transition:.3s;
+    font-size:14px;
+}
+
+.skills li:hover{
+    background:var(--accent);
+    color:#020236;
+}
+
+/* ================= PROJECTS ================= */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+.project{
+    background:rgba(0,0,0,0.35);
+    padding:20px;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-5px);
+}
+
+.project h3{
+    color:var(--accent);
+    margin-bottom:8px;
+}
+
+.project p{
+    font-size:13px;
+    opacity:.9;
+}
+
+/* ================= CONTACT ================= */
+.contact input,
+.contact textarea{
+    width:260px;
+    padding:8px;
+    margin:6px 0;
+    border-radius:6px;
+    border:none;
+    outline:none;
+}
+
+/* ================= BUTTON ================= */
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 30px;
+    background:var(--accent);
+    color:#020236;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    opacity:.85;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align:center;
+    opacity:.6;
+    padding:20px;
+    font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#home" data-i18n="nav_home">Home</a>
+<a href="#about" data-i18n="nav_about">About</a>
+<a href="#skills" data-i18n="nav_skills">Skills</a>
+<a href="#projects" data-i18n="nav_projects">Projects</a>
+<a href="#contact" data-i18n="nav_contact">Contact</a>
+</nav>
+
+<div class="lang-switch">
+<button onclick="setLang('kz')">KZ</button>
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('ru')">RU</button>
+</div>
+
+<div class="hero" id="home">
+<h1 data-i18n="title">Dos.Coding</h1>
+<p><span id="typing"></span></p>
+</div>
+
+<div class="photo">
+<img src="myphoto.jpg" alt="Eldos">
+</div>
+
+<section id="about">
+<h2 data-i18n="about_title">About Me</h2>
+<p data-i18n="about_text">
+Self-taught Full Stack Developer
+</p>
+
+<div class="socials">
+<a href="https://www.instagram.com/__knsnv.e" target="_blank">📸 Instagram</a>
+<a href="https://t.me/N187khaj8" target="_blank">✈️ Telegram</a>
+<a href="https://wa.me/77057812935" target="_blank">💬 WhatsApp</a>
+</div>
+</section>
+
+<section id="skills">
+<h2 data-i18n="skills_title">Skills</h2>
+<ul class="skills">
+<li>HTML / CSS</li><li>JavaScript</li><li>Python</li>
+<li>Django</li><li>Flutter</li><li>React</li>
+<li>Node.js</li><li>SQL</li><li>Git</li>
+</ul>
+</section>
+
+<section id="projects">
+<h2 data-i18n="projects_title">Projects</h2>
+<div class="projects">
+<div class="project">
+<h3>Medical AI Bot</h3>
+<p>Python + Streamlit</p>
+</div>
+<div class="project">
+<h3>Chat App</h3>
+<p>Flutter + Firebase</p>
+</div>
+<div class="project">
+<h3>DOSPEN</h3>
+<p>Education Platform</p>
+</div>
+<div class="project">
+<h3>DOSUM</h3>
+<p>AI Platform</p>
+</div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2 data-i18n="contact_title">Contact Me</h2>
+<input placeholder="Name"><br>
+<input placeholder="Email"><br>
+<textarea rows="4" placeholder="Message"></textarea><br>
+<button class="btn" data-i18n="send">Send</button>
+</section>
+
+<footer>
+© 2026 Dos.Coding
+</footer>
+
+<script>
+/* TYPING */
+const typingText="Full Stack & Python Developer";
+let i=0;
+function type(){
+    if(i<typingText.length){
+        document.getElementById("typing").innerHTML+=typingText[i];
+        i++; setTimeout(type,80);
+    }
+}
+type();
+
+/* I18N */
+const t={
+kz:{
+nav_home:"Басты бет",
+nav_about:"Мен туралы",
+nav_skills:"Дағдылар",
+nav_projects:"Жобалар",
+nav_contact:"Байланыс",
+title:"Dos.Coding",
+about_title:"Мен туралы",
+about_text:"Мен өз бетімен үйренген Full Stack бағдарламашымын. Web және Mobile қосымшалар жасаймын.",
+skills_title:"Дағдылар",
+projects_title:"Жобалар",
+contact_title:"Байланыс",
+send:"Жіберу"
+},
+en:{
+nav_home:"Home",
+nav_about:"About",
+nav_skills:"Skills",
+nav_projects:"Projects",
+nav_contact:"Contact",
+title:"Dos.Coding",
+about_title:"About Me",
+about_text:"I am a self-taught Full Stack developer building modern web and mobile apps.",
+skills_title:"Skills",
+projects_title:"Projects",
+contact_title:"Contact Me",
+send:"Send"
+},
+ru:{
+nav_home:"Главная",
+nav_about:"Обо мне",
+nav_skills:"Навыки",
+nav_projects:"Проекты",
+nav_contact:"Контакты",
+title:"Dos.Coding",
+about_title:"Обо мне",
+about_text:"Я self-taught Full Stack разработчик. Создаю web и mobile приложения.",
+skills_title:"Навыки",
+projects_title:"Проекты",
+contact_title:"Связаться",
+send:"Отправить"
+}
+};
+
+function setLang(l){
+document.querySelectorAll("[data-i18n]").forEach(e=>{
+e.innerText=t[l][e.dataset.i18n];
+});
+localStorage.setItem("lang",l);
+}
+setLang(localStorage.getItem("lang")||"kz");
+
+</script>
+
+</body>
+</html>
